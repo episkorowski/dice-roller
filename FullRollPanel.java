@@ -7,16 +7,16 @@ import java.awt.event.*;
 
 public class FullRollPanel extends JPanel{
 	
-	private JTextField rollField;		// Holds the text string for the roll
-	private JButton rollButton;			// Button to roll using the string in rollField
+	private JTextField rollField;	// Holds the text string for the roll
+	private JButton rollButton;		// Button to roll using the string in rollField
 	
-	private Die die;					// Die object
-	private String[] rollContents;		// String array that stores the contents of the roll string
-	private int quantity;				// Number of dice to be rolled
-	private int rollAcc;				// Accumulator for holding the value of multiple dice rolls
-	private int faceType;				// Number of faces on the die
-	private int modifier;				// Modifier to add (or subtract) from the end result
-	private int roll;					// Holds an individual raw roll
+	private Die die;				// Die object
+	private String[] rollContents;	// String array that stores the contents of the roll string
+	private int quantity;			// Number of dice to be rolled
+	private int rollAcc;			// Accumulator for holding the value of multiple dice rolls
+	private int faceType;			// Number of faces on the die
+	private int modifier;			// Modifier to add (or subtract) from the end result
+	private int roll;				// Holds an individual raw roll
 	
 	
 	public FullRollPanel(){
@@ -34,8 +34,8 @@ public class FullRollPanel extends JPanel{
 		add(rollButton);
 		
 		TitledBorder border = BorderFactory.createTitledBorder("Full Roll");
-        border.setTitleJustification(TitledBorder.CENTER);
-    	this.setBorder(border);
+        	border.setTitleJustification(TitledBorder.CENTER);
+    		this.setBorder(border);
     	
 		setVisible(true);
 	}
@@ -53,7 +53,6 @@ public class FullRollPanel extends JPanel{
             
             // Splits the string in the roll field by 'd' and '+', getting the 3 relevant integers
             rollContents = rollField.getText().split("[d+]");
-            
             
             if(rollContents.length == 3){
 	            // Sets the quantity, faceType, and modifier based on the relevant info retrieved from the string
@@ -73,6 +72,7 @@ public class FullRollPanel extends JPanel{
 	            rollAcc = rollAcc + modifier;
 	            QuickRollPanel.resultField.setText(String.valueOf(rollAcc));
 	        } 
+			
             // Simple way to avoid processing nonsense. Needs a proper exception. Doesn't handle when user enters only strings.
             else{
                 rollField.setText("Invalid Format");
