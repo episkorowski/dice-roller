@@ -131,8 +131,7 @@ public class QuickRollPanel extends JPanel{
             
             if(e.getActionCommand() == "Clear"){
             	resultField.setText("");
-            }
-            
+            }            
         }    
     }
 
